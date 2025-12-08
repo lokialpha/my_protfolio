@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Aung Aung, web developer. Space-inspired, animated, and theme-aware.">
+  <title>Aung Aung | Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="star-canvas" aria-hidden="true"></canvas>
+  <div class="space-overlay" aria-hidden="true">
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="orbital"></div>
+    <div class="planet"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="assets/aungaung.jpeg" alt="Aung Aung" loading="lazy">
+      </div>
+      <div class="brand-text">
+        <span class="eyebrow">Web Developer</span>
+        <strong>Aung Aung</strong>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span class="icon">🌙</span>
+      <span class="label">Dark</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Hi, I am</p>
+        <h1>Aung Aung</h1>
+        <p class="lead">
+          Web developer crafting fast, resilient products across web and cloud.
+          I blend thoughtful UX with robust backend architecture to build things that feel magic.
+        </p>
+        <div class="cta">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button ghost" href="#contact">Let us talk</a>
+        </div>
+        <div class="quick-stats">
+          <div class="stat-card">
+            <div class="value">7+</div>
+            <div class="label">Years shipping web apps</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">30</div>
+            <div class="label">Projects launched</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">∞</div>
+            <div class="label">Curiosity for space</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit-path">
+          <span class="satellite"></span>
+          <span class="satellite delay"></span>
+        </div>
+        <div class="photo-frame">
+          <div class="photo-glow"></div>
+          <img id="hero-photo" src="assets/aungaung.jpeg" alt="Portrait of Aung Aung">
+          <div class="photo-caption">
+            <span class="chip">Web Developer</span>
+            <span class="chip soft">Based on Earth · Dreaming of space</span>
+          </div>
+        </div>
+        <div class="profile-card">
+          <div class="glow"></div>
+          <div class="profile-text">
+            <p>Building reliable, human-friendly experiences.</p>
+            <div class="tech-tags">
+              <span>React</span><span>TypeScript</span><span>Python</span><span>Node</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <div class="panel-header">
+        <p class="eyebrow">About</p>
+        <h2>Engineer with a product mindset</h2>
+      </div>
+      <div class="panel-body two-col">
+        <p>
+          I am a web developer who loves connecting front-end polish with dependable backends.
+          From design systems to distributed services, I enjoy shipping cohesive products that users trust.
+          Lately I have been exploring edge runtimes, design tokens, and ways to make web apps feel native.
+        </p>
+        <p>
+          Outside of code, you will find me stargazing, sketching interface ideas, or tinkering with hardware.
+          I thrive on teams that value clarity, mentorship, and strong engineering practices.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="panel cards-grid">
+      <div class="panel-header">
+        <p class="eyebrow">Skills</p>
+        <h2>Tech stack in orbit</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Frontend</h3>
+          <p>React, Next.js, Astro, TypeScript, Redux, Tailwind, Framer Motion.</p>
+        </article>
+        <article class="card">
+          <h3>Backend</h3>
+          <p>Node, Express, Django, FastAPI, GraphQL, REST, WebSockets, gRPC.</p>
+        </article>
+        <article class="card">
+          <h3>Cloud & Data</h3>
+          <p>AWS, Docker, Kubernetes, PostgreSQL, MongoDB, Redis, Kafka, CI/CD.</p>
+        </article>
+        <article class="card">
+          <h3>Practices</h3>
+          <p>Testing-first, monitoring, performance tuning, accessibility, documentation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="panel projects">
+      <div class="panel-header">
+        <p class="eyebrow">Projects</p>
+        <h2>Recent launches</h2>
+      </div>
+      <div class="cards">
+        <article class="card project-card" data-repo="letsphuket" data-user="lokialpha">
+          <div class="badge">GitHub</div>
+          <h3>letsphuket</h3>
+          <p class="project-desc">Loading repository details...</p>
+          <div class="meta">Fetching...</div>
+          <div class="project-actions">
+            <a class="project-link button ghost" href="https://github.com/lokialpha/letsphuket" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
+          </div>
+        </article>
+        <article class="card project-card" data-repo="my_media_project" data-user="lokialpha">
+          <div class="badge">GitHub</div>
+          <h3>my_media_project</h3>
+          <p class="project-desc">Loading repository details...</p>
+          <div class="meta">Fetching...</div>
+          <div class="project-actions">
+            <a class="project-link button ghost" href="https://github.com/lokialpha/my_media_project" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
+          </div>
+        </article>
+        <article class="card project-card" data-repo="pos_project" data-user="lokialpha">
+          <div class="badge">GitHub</div>
+          <h3>pos_project</h3>
+          <p class="project-desc">Loading repository details...</p>
+          <div class="meta">Fetching...</div>
+          <div class="project-actions">
+            <a class="project-link button ghost" href="https://github.com/lokialpha/pos_project" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="panel timeline">
+      <div class="panel-header">
+        <p class="eyebrow">Experience</p>
+        <h2>Flight log</h2>
+      </div>
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <h3 id="gh-name">GitHub profile</h3>
+            <p class="meta" id="gh-meta">Loading GitHub profile...</p>
+            <p id="gh-bio">Fetching bio, followers, and repo stats from GitHub.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <h3 id="gh-repo-title">Latest repository</h3>
+            <p class="meta" id="gh-repo-meta">Fetching latest repo...</p>
+            <p id="gh-repo-desc">Loading repository details from GitHub.</p>
+            <a class="button ghost small" id="gh-repo-link" href="#" target="_blank" rel="noreferrer" style="display:none;">View repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="panel contact">
+      <div class="panel-header">
+        <p class="eyebrow">Contact</p>
+        <h2>Let us build together</h2>
+      </div>
+      <div class="contact-card">
+        <p>Available for full-time roles, collaborations, or consulting.</p>
+        <div class="contact-actions">
+          <a
+            id="email-button"
+            class="button primary"
+            href="mailto:alphavat.mm@gmail.com"
+          >
+            Email me
+          </a>
+          <a class="button ghost" href="https://www.linkedin.com/in/aung-aung" target="_blank" rel="noreferrer">LinkedIn (Aung Aung)</a>
+          <a class="button ghost" href="https://github.com/lokialpha" target="_blank" rel="noreferrer">GitHub (lokialpha)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Crafted by Aung Aung · Built with Python + HTML/CSS/JS</p>
+    <div class="footer-meta">
+      <span>Always learning</span>
+      <span>Enjoy the stars</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
