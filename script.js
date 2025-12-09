@@ -29,6 +29,28 @@ toggle.addEventListener("click", () => {
   applyTheme(next);
 });
 
+// Mobile nav toggle
+const navToggle = document.getElementById("nav-toggle");
+const nav = document.querySelector(".nav");
+if (navToggle && nav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    navToggle.classList.toggle("open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close nav when a link is clicked (mobile)
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        navToggle.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+}
+
 preferredDark.addEventListener("change", (event) => {
   if (!localStorage.getItem(THEME_KEY)) {
     applyTheme(event.matches ? "dark" : "light");

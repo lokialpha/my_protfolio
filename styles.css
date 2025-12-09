@@ -135,6 +135,13 @@ h4 {
   flex-wrap: wrap;
 }
 
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
 .nav a {
   padding: 8px 10px;
   border-radius: 10px;
@@ -146,6 +153,62 @@ h4 {
 .nav a:hover {
   color: var(--text);
   background: var(--panel);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.menu-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--glow);
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+.menu-toggle.open .menu-icon {
+  background: transparent;
+}
+
+.menu-toggle.open .menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open .menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .theme-toggle {
@@ -656,13 +719,47 @@ h4 {
 
 @media (max-width: 720px) {
   .topbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .top-actions {
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav {
-    width: 100%;
-    justify-content: space-between;
+    position: absolute;
+    top: 68px;
+    right: 16px;
+    left: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    margin: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    z-index: 15;
+  }
+
+  :root[data-theme="light"] .nav {
+    background: rgba(244, 244, 245, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+  }
+
+  .nav.open {
+    display: flex;
   }
 
   .hero {
