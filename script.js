@@ -83,7 +83,7 @@ const repoCards = document.querySelectorAll("[data-repo]");
 
 async function loadRepoCard(card) {
   const repoName = card.dataset.repo;
-  const user = card.dataset.user || "lokialpha";
+  const user = card.dataset.user || "my_portfolio";
   const dataLive = card.dataset.live || "";
   if (!repoName) return;
 
@@ -220,7 +220,7 @@ async function loadGithubExperience(user) {
   }
 }
 
-loadGithubExperience("lokialpha");
+loadGithubExperience("my_portfolio");
 
 // Starfield animation
 const canvas = document.getElementById("star-canvas");
