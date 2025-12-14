@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Aung Aung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <canvas id="star-canvas" aria-hidden="true"></canvas>
+  <div class="space-overlay" aria-hidden="true">
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="orbital"></div>
+    <div class="planet"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="../assets/aungaung.jpeg" alt="Aung Aung" loading="lazy">
+      </div>
+      <div class="brand-text">
+        <span class="eyebrow">Web Developer</span>
+        <strong>Aung Aung</strong>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./skills.html">Skills</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./experience.html">Experience</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+    <div class="top-actions">
+      <button class="menu-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="menu-icon"></span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="icon">🌙</span>
+        <span class="label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">About</p>
+      <h1>Engineer with a product mindset</h1>
+      <p class="lead">I design and build end-to-end experiences that feel thoughtful, fast, and reliable.</p>
+      <div class="cta">
+        <a class="button primary" href="../index.html#hero">Back to home</a>
+        <a class="button ghost" href="./contact.html">Work together</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-body two-col">
+        <p>
+          I am a web developer who loves connecting front-end polish with dependable backends.
+          From design systems to distributed services, I enjoy shipping cohesive products that users trust.
+          Lately I have been exploring edge runtimes, design tokens, and ways to make web apps feel native.
+        </p>
+        <p>
+          Outside of code, you will find me stargazing, sketching interface ideas, or tinkering with hardware.
+          I thrive on teams that value clarity, mentorship, and strong engineering practices.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Crafted by Aung Aung · Built with Python + HTML/CSS/JS</p>
+    <div class="footer-meta">
+      <span>Always learning</span>
+      <span>Enjoy the stars</span>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=offline"></script>
+</body>
+</html>

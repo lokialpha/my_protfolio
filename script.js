@@ -80,11 +80,15 @@ if (heroPhoto) {
 
 // GitHub repo loader for project cards
 const repoCards = document.querySelectorAll("[data-repo]");
+const ENABLE_GITHUB_FETCH = false; // Disable GitHub API calls to avoid 403s/429s locally
 
 async function loadRepoCard(card) {
   const repoName = card.dataset.repo;
-  const user = card.dataset.user || "my_portfolio";
-  const dataLive = card.dataset.live || "";
+  const user = card.dataset.user || "lokialpha";
+  const dataLive = (card.dataset.live || "").trim();
+  const fallbackDesc = card.dataset.desc || "Project repository.";
+  const fallbackMeta = card.dataset.meta || "Live preview";
+  const fallbackTitle = card.dataset.title || repoName;
   if (!repoName) return;
 
   const titleEl = card.querySelector("h3");
@@ -94,35 +98,46 @@ async function loadRepoCard(card) {
   const liveEl = card.querySelector(".live-link");
 
   const fallbackGitHubUrl = `https://github.com/${user}/${repoName}`;
+
+  const setLiveLink = (url) => {
+    if (!liveEl) return;
+    if (url) {
+      const href = url.startsWith("http") ? url : `https://${url}`;
+      liveEl.href = href;
+      liveEl.textContent = "Go to website";
+      liveEl.style.display = "inline-flex";
+    } else {
+      liveEl.style.display = "none";
+    }
+  };
+
+  // Prime with fallback content first.
+  if (titleEl) titleEl.textContent = fallbackTitle;
+  if (descEl) descEl.textContent = fallbackDesc;
+  if (metaEl) metaEl.textContent = fallbackMeta;
   if (linkEl) {
     linkEl.href = fallbackGitHubUrl;
     linkEl.textContent = "View on GitHub";
     linkEl.style.display = "inline-flex";
   }
+  setLiveLink(dataLive);
 
-  const setError = (message) => {
-    if (titleEl) titleEl.textContent = repoName;
-    if (descEl) descEl.textContent = "Could not load repository details.";
-    if (metaEl) metaEl.textContent = message;
-    if (linkEl) {
-      linkEl.href = fallbackGitHubUrl;
-      linkEl.style.display = "inline-flex";
-    }
-    if (liveEl) liveEl.style.display = "none";
-  };
+  // Skip GitHub fetches by default to avoid 403 errors (rate limits / blockers).
+  if (!ENABLE_GITHUB_FETCH) {
+    return;
+  }
 
   try {
     const response = await fetch(`https://api.github.com/repos/${user}/${repoName}`, {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (!response.ok) {
-      setError(`GitHub responded with ${response.status}`);
       return;
     }
 
     const repo = await response.json();
     if (titleEl) titleEl.textContent = repo.name || repoName;
-    if (descEl) descEl.textContent = repo.description || "GitHub repository";
+    if (descEl) descEl.textContent = repo.description || fallbackDesc;
     const updated = repo.updated_at ? new Date(repo.updated_at).toISOString().split("T")[0] : "unknown date";
     if (metaEl) metaEl.textContent = `${updated} • ★ ${repo.stargazers_count} • ${repo.language || "Various"}`;
     if (linkEl) {
@@ -134,17 +149,9 @@ async function loadRepoCard(card) {
     if (!homepage && repo.has_pages) {
       homepage = `https://${user}.github.io/${repo.name || repoName}/`;
     }
-    if (liveEl) {
-      if (homepage) {
-        liveEl.href = homepage.startsWith("http") ? homepage : `https://${homepage}`;
-        liveEl.textContent = "Go to website";
-        liveEl.style.display = "inline-flex";
-      } else {
-        liveEl.style.display = "none";
-      }
-    }
+    setLiveLink(homepage);
   } catch (error) {
-    setError(error.message);
+    // Keep fallback content on error.
   }
 }
 
@@ -160,18 +167,49 @@ const ghRepoDesc = document.getElementById("gh-repo-desc");
 const ghRepoLink = document.getElementById("gh-repo-link");
 
 async function loadGithubExperience(user) {
-  const setProfileError = (message) => {
-    if (ghName) ghName.textContent = "GitHub profile";
-    if (ghMeta) ghMeta.textContent = message;
-    if (ghBio) ghBio.textContent = "Could not load GitHub profile details.";
+  const fallbackProfile = {
+    name: "lokialpha on GitHub",
+    meta: "See GitHub for followers, repos, and activity.",
+    bio: "Building and shipping projects; live stats appear when GitHub is reachable.",
   };
+  const fallbackRepo = {
+    title: "Latest repository",
+    meta: "See GitHub for the latest updates.",
+    desc: "Most recent work is available on GitHub.",
+    link: `https://github.com/${user}`,
+  };
+
+  const setProfileFallback = () => {
+    if (ghName) ghName.textContent = fallbackProfile.name;
+    if (ghMeta) ghMeta.textContent = fallbackProfile.meta;
+    if (ghBio) ghBio.textContent = fallbackProfile.bio;
+  };
+
+  const setRepoFallback = () => {
+    if (ghRepoTitle) ghRepoTitle.textContent = fallbackRepo.title;
+    if (ghRepoMeta) ghRepoMeta.textContent = fallbackRepo.meta;
+    if (ghRepoDesc) ghRepoDesc.textContent = fallbackRepo.desc;
+    if (ghRepoLink) {
+      ghRepoLink.href = fallbackRepo.link;
+      ghRepoLink.textContent = "View on GitHub";
+      ghRepoLink.style.display = "inline-flex";
+    }
+  };
+
+  // Prime timeline with fallback values before any network calls.
+  setProfileFallback();
+  setRepoFallback();
+
+  if (!ENABLE_GITHUB_FETCH) {
+    return;
+  }
 
   try {
     const profileRes = await fetch(`https://api.github.com/users/${user}`, {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (!profileRes.ok) {
-      setProfileError(`GitHub responded with ${profileRes.status}`);
+      setProfileFallback();
     } else {
       const profile = await profileRes.json();
       const joined = profile.created_at ? new Date(profile.created_at).toISOString().split("T")[0] : "unknown";
@@ -182,28 +220,21 @@ async function loadGithubExperience(user) {
       if (ghBio) ghBio.textContent = profile.bio || "No bio provided on GitHub.";
     }
   } catch (error) {
-    setProfileError(error.message);
+    setProfileFallback();
   }
-
-  const setRepoError = (message) => {
-    if (ghRepoTitle) ghRepoTitle.textContent = "Latest repository";
-    if (ghRepoMeta) ghRepoMeta.textContent = message;
-    if (ghRepoDesc) ghRepoDesc.textContent = "Could not load latest repository.";
-    if (ghRepoLink) ghRepoLink.style.display = "none";
-  };
 
   try {
     const repoRes = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=1`, {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (!repoRes.ok) {
-      setRepoError(`GitHub responded with ${repoRes.status}`);
+      setRepoFallback();
       return;
     }
     const repos = await repoRes.json();
     const repo = repos && repos[0];
     if (!repo) {
-      setRepoError("No repositories found");
+      setRepoFallback();
       return;
     }
     const updated = repo.updated_at ? new Date(repo.updated_at).toISOString().split("T")[0] : "unknown date";
@@ -216,11 +247,11 @@ async function loadGithubExperience(user) {
       ghRepoLink.style.display = "inline-flex";
     }
   } catch (error) {
-    setRepoError(error.message);
+    setRepoFallback();
   }
 }
 
-loadGithubExperience("my_portfolio");
+loadGithubExperience("lokialpha");
 
 // Starfield animation
 const canvas = document.getElementById("star-canvas");

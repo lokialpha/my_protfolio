@@ -40,11 +40,11 @@
     </div>
     <nav class="nav">
       <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/skills.html">Skills</a>
+      <a href="pages/projects.html">Projects</a>
+      <a href="pages/experience.html">Experience</a>
+      <a href="pages/contact.html">Contact</a>
     </nav>
     <div class="top-actions">
       <button class="menu-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -67,8 +67,8 @@
           I blend thoughtful UX with robust backend architecture to build things that feel magic.
         </p>
         <div class="cta">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button ghost" href="#contact">Let us talk</a>
+          <a class="button primary" href="pages/projects.html">View Projects</a>
+          <a class="button ghost" href="pages/contact.html">Let us talk</a>
         </div>
         <div class="quick-stats">
           <div class="stat-card">
@@ -107,6 +107,35 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="panel cards-grid">
+      <div class="panel-header">
+        <p class="eyebrow">Site pages</p>
+        <h2>Explore each section</h2>
+      </div>
+      <div class="cards page-links">
+        <a class="card link-card" href="pages/about.html">
+          <h3>About</h3>
+          <p>My background, principles, and how I approach product work.</p>
+        </a>
+        <a class="card link-card" href="pages/skills.html">
+          <h3>Skills</h3>
+          <p>Frontend craft, backend rigor, and the cloud tooling I rely on.</p>
+        </a>
+        <a class="card link-card" href="pages/projects.html">
+          <h3>Projects</h3>
+          <p>Recent launches pulling live data from GitHub repositories.</p>
+        </a>
+        <a class="card link-card" href="pages/experience.html">
+          <h3>Experience</h3>
+          <p>Highlights, GitHub profile stats, and recent milestones.</p>
+        </a>
+        <a class="card link-card" href="pages/contact.html">
+          <h3>Contact</h3>
+          <p>Ways to connect for roles, collaborations, or consulting.</p>
+        </a>
       </div>
     </section>
 
@@ -159,33 +188,52 @@
         <h2>Recent launches</h2>
       </div>
       <div class="cards">
-        <article class="card project-card" data-repo="letsphuket" data-user="my_portfolio">
+        <article
+          class="card project-card"
+          data-repo="letsphuket"
+          data-user="lokialpha"
+          data-live="https://letsphuket.site"
+          data-desc="Travel booking experience for Phuket with a modern UI."
+          data-meta="Next.js • Tailwind • 2024"
+        >
           <div class="badge">GitHub</div>
           <h3>letsphuket</h3>
-          <p class="project-desc">Loading repository details...</p>
-          <div class="meta">Fetching...</div>
+          <p class="project-desc">Travel booking experience for Phuket with a modern UI.</p>
+          <div class="meta">Next.js • Tailwind • 2024</div>
           <div class="project-actions">
-            <a class="project-link button ghost" href="https://github.com/my_portfolio/letsphuket" target="_blank" rel="noreferrer">View on GitHub</a>
-            <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
+            <a class="project-link button ghost" href="https://github.com/lokialpha/letsphuket" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="live-link button primary" href="https://letsphuket.site" target="_blank" rel="noreferrer">Visit letsphuket.site</a>
           </div>
         </article>
-        <article class="card project-card" data-repo="my_media_project" data-user="my_portfolio">
+        <article
+          class="card project-card"
+          data-repo="my_media_project"
+          data-user="lokialpha"
+          data-desc="Media library dashboard with uploads, tagging, and playback."
+          data-meta="MERN • 2023"
+        >
           <div class="badge">GitHub</div>
           <h3>my_media_project</h3>
-          <p class="project-desc">Loading repository details...</p>
-          <div class="meta">Fetching...</div>
+          <p class="project-desc">Media library dashboard with uploads, tagging, and playback.</p>
+          <div class="meta">MERN • 2023</div>
           <div class="project-actions">
-            <a class="project-link button ghost" href="https://github.com/my_portfolio/my_media_project" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="project-link button ghost" href="https://github.com/lokialpha/my_media_project" target="_blank" rel="noreferrer">View on GitHub</a>
             <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
           </div>
         </article>
-        <article class="card project-card" data-repo="pos_project" data-user="my_portfolio">
+        <article
+          class="card project-card"
+          data-repo="pos_project"
+          data-user="lokialpha"
+          data-desc="Point-of-sale web app with inventory and receipts."
+          data-meta="React/Node • 2023"
+        >
           <div class="badge">GitHub</div>
           <h3>pos_project</h3>
-          <p class="project-desc">Loading repository details...</p>
-          <div class="meta">Fetching...</div>
+          <p class="project-desc">Point-of-sale web app with inventory and receipts.</p>
+          <div class="meta">React/Node • 2023</div>
           <div class="project-actions">
-            <a class="project-link button ghost" href="https://github.com/my_portfolio/pos_project" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="project-link button ghost" href="https://github.com/lokialpha/pos_project" target="_blank" rel="noreferrer">View on GitHub</a>
             <a class="live-link button ghost" href="#" target="_blank" rel="noreferrer" style="display:none;">Go to website</a>
           </div>
         </article>
@@ -201,18 +249,18 @@
         <div class="timeline-item">
           <div class="dot"></div>
           <div>
-            <h3 id="gh-name">GitHub profile</h3>
-            <p class="meta" id="gh-meta">Loading GitHub profile...</p>
-            <p id="gh-bio">Fetching bio, followers, and repo stats from GitHub.</p>
+            <h3 id="gh-name">lokialpha on GitHub</h3>
+            <p class="meta" id="gh-meta">See GitHub for followers, repos, and activity.</p>
+            <p id="gh-bio">Building and shipping projects; live stats appear when GitHub is reachable.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="dot"></div>
           <div>
             <h3 id="gh-repo-title">Latest repository</h3>
-            <p class="meta" id="gh-repo-meta">Fetching latest repo...</p>
-            <p id="gh-repo-desc">Loading repository details from GitHub.</p>
-            <a class="button ghost small" id="gh-repo-link" href="#" target="_blank" rel="noreferrer" style="display:none;">View repo</a>
+            <p class="meta" id="gh-repo-meta">See GitHub for the latest updates.</p>
+            <p id="gh-repo-desc">Most recent work is available on GitHub.</p>
+            <a class="button ghost small" id="gh-repo-link" href="https://github.com/lokialpha" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
         </div>
       </div>
@@ -234,7 +282,8 @@
             Email me
           </a>
           <a class="button ghost" href="https://www.linkedin.com/in/aung-aung" target="_blank" rel="noreferrer">LinkedIn (Aung Aung)</a>
-          <a class="button ghost" href="https://github.com/my_portfolio" target="_blank" rel="noreferrer">GitHub (my_portfolio)</a>
+          <a class="button ghost" href="https://github.com/lokialpha" target="_blank" rel="noreferrer">GitHub (lokialpha)</a>
+          <a class="button ghost" href="https://www.facebook.com/accofadam" target="_blank" rel="noreferrer">Facebook (Aung Aung)</a>
         </div>
       </div>
     </section>
@@ -248,6 +297,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=offline"></script>
 </body>
 </html>

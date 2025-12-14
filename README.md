@@ -14,9 +14,10 @@ Python-served portfolio for Aung Aung, a web developer. Features animated starfi
 
 ## What is inside
 
-- `index.html` — content and structure for hero, skills, projects, experience, and contact sections (projects load details from GitHub repos `letsphuket`, `my_media_project`, and `pos_project` for user `my_portfolio` at runtime; experience pulls GitHub profile + latest repo details).
+- `index.html` — home hero, section previews, and links to the dedicated pages (projects load details from GitHub repos `letsphuket`, `my_media_project`, and `pos_project` for user `lokialpha` at runtime; experience pulls GitHub profile + latest repo details).
 - `styles.css` — space-inspired theme, animations, layout, and responsive tweaks.
 - `script.js` — starfield canvas animation, GitHub project loader, and dark/light theme toggle with persistence.
+- `pages/` — standalone pages for About, Skills, Projects, Experience, and Contact.
 - `assets/aung-aung.jpg` — place your portrait here (referenced by the hero photo frame).
 - `app.py` — minimal Python HTTP server (no external dependencies).
 
