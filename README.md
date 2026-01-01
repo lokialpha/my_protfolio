@@ -7,6 +7,12 @@ Designed with a space-themed interface to highlight creativity, frontend skills,
 
 ---
 
+## 📸 Preview
+
+![Portfolio Preview](assets/preview.png)
+
+---
+
 ## 👋 About This Project
 
 This portfolio serves as my main developer hub where I showcase:
@@ -34,6 +40,14 @@ It is built not just as a personal website, but as a **career portfolio** for cl
 - **Backend:** Python (lightweight local server)
 - **Deployment:** GitHub Pages + Custom Domain
 - **Tools:** Git, GitHub
+
+---
+
+## 📚 What I Learned
+
+- Structuring a portfolio for real-world use
+- Improving UI/UX through animations and layout
+- Deploying with GitHub Pages and custom domains
 
 ---
 
