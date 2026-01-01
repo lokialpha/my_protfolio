@@ -1,24 +1,64 @@
-# Aung Aung · Space-Themed Portfolio
+# My Portfolio 🌌
 
-Python-served portfolio for Aung Aung, a web developer. Features animated starfield, nebula accents, orbiting visuals, and a dark/light theme switch.
+🌐 **Live Website:** https://lokialpha.site
 
-## Run locally
+Personal portfolio showcasing my web projects, automation tools, and digital products.  
+Designed with a space-themed interface to highlight creativity, frontend skills, and real-world deployment.
 
-1. Ensure Python 3 is available.
-2. Start the built-in server from the project root (binds to localhost by default):
+---
+
+## 👋 About This Project
+
+This portfolio serves as my main developer hub where I showcase:
+- Real projects with live demos
+- Web and automation skills
+- Product-focused development mindset
+
+It is built not just as a personal website, but as a **career portfolio** for clients, collaborators, and recruiters.
+
+---
+
+## ✨ Key Features
+
+- 🌌 Space-themed UI with animated visuals
+- 🎨 Dark / Light mode toggle
+- 📂 Dedicated pages for projects and content
+- ⚡ Fast loading and clean structure
+- 🌍 Deployed with custom domain support
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python (lightweight local server)
+- **Deployment:** GitHub Pages + Custom Domain
+- **Tools:** Git, GitHub
+
+---
+
+## 🚀 Live Preview
+
+👉 Visit the live site here:  
+**https://lokialpha.site**
+
+---
+
+## 🧠 Why I Built This
+
+This portfolio was built to:
+- Centralize all my developer work in one place
+- Demonstrate UI/UX and frontend fundamentals
+- Experiment with animations and visual storytelling
+- Act as a foundation for future projects and products
+
+---
+
+## ⚙️ Run Locally (Optional)
+
+If you want to run the project locally:
+
+1. Make sure **Python 3** is installed
+2. From the project root, start the server:
    ```bash
    python3 app.py
-   ```
-   - Optional: set a port or host: `PORT=9000 HOST=127.0.0.1 python3 app.py`
-3. Open `http://127.0.0.1:8000` (or your chosen host:port) in your browser.
-
-## What is inside
-
-- `index.html` — home hero, section previews, and links to the dedicated pages (projects load details from GitHub repos `letsphuket`, `my_media_project`, and `pos_project` for user `lokialpha` at runtime; experience pulls GitHub profile + latest repo details).
-- `styles.css` — space-inspired theme, animations, layout, and responsive tweaks.
-- `script.js` — starfield canvas animation, GitHub project loader, and dark/light theme toggle with persistence.
-- `pages/` — standalone pages for About, Skills, Projects, Experience, and Contact.
-- `assets/aung-aung.jpg` — place your portrait here (referenced by the hero photo frame).
-- `app.py` — minimal Python HTTP server (no external dependencies).
-
-Feel free to edit the content, project entries, or styling to fit your story.
